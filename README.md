@@ -1,11 +1,16 @@
 # my-portfolio
 
 ## Contents
-- :arrows_counterclockwise: ONGOING - My Thesis Project (CXR Classification using Image Enhancement, Transfer Learning, and Machine Learning)
-- Data Science
-- Data Visualization
+- My Thesis (CXR Classification using Image Enhancement, Transfer Learning, and Machine Learning)
+- Python Projects
+- PowerBI Dashboards
+- SQL (ONGOING)
 
-# Data Science
+
+# My Thesis
+*under construction
+
+# Python Projects
 
 | Link | Tools | Description | 
 |---|---|---|
