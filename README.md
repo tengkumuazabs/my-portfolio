@@ -12,7 +12,9 @@
 *under construction
 
 # Python Projects
-*under construction
+| Title | Findings | 
+|---|---|---|
+| [Predict prices of airline tickets]([https://www.kaggle.com/code/yeehawww/titanic-spaceship-competition/notebook](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/Predict_prices_of_airline_tickets.ipynb)) | *some findings goes here. |
 
 # Kaggle Competitions
 
