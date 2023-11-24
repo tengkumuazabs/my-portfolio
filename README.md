@@ -25,7 +25,9 @@
 | [Titanic Spaceship Data Competition](https://www.kaggle.com/yeehawww/digit-recognizer-using-neural-network) | Python | Again, by using VotingClassifier between CatBoost and GaussianNB, I got 78.2% of score and I am currently in 2503 out of 15892 participants (Top 16%). |
 
 # PowerBI Dashboards
-*under construction
+| Title | Findings | 
+|---|---|
+| [Campus Dashboard](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/Predict_prices_of_airline_tickets.ipynb) | *some description goes here. |
 
 # SQL
 *under construction
