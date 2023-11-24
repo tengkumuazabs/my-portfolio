@@ -1,14 +1,14 @@
 # my-portfolio
 
 ## Contents
-- My Thesis (Image Enhancement and Hybrid CNN to Improve COVID-19 Classification Performance on Chest X-Ray Images)
+- Thesis at Master's Degree (Image Enhancement and Hybrid CNN to Improve COVID-19 Classification Performance on Chest X-Ray Images)
 - Python Projects
 - Kaggle Competitions
 - PowerBI Dashboards
 - SQL
 
 
-# My Thesis (Image Enhancement and Hybrid CNN to Improve COVID-19 Classification Performance on Chest X-Ray Images)
+# Thesis at Master's Degree (Image Enhancement and Hybrid CNN to Improve COVID-19 Classification Performance on Chest X-Ray Images)
 *under construction
 
 # Python Projects
