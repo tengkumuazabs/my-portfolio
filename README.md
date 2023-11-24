@@ -1,16 +1,20 @@
 # my-portfolio
 
 ## Contents
-- My Thesis (CXR Classification using Image Enhancement, Transfer Learning, and Machine Learning)
+- My Thesis (Image Enhancement and Hybrid CNN to Improve COVID-19 Classification Performance on Chest X-Ray Images)
 - Python Projects
+- Kaggle Competitions
 - PowerBI Dashboards
-- SQL (ONGOING)
+- SQL
 
 
-# My Thesis
+# My Thesis (Image Enhancement and Hybrid CNN to Improve COVID-19 Classification Performance on Chest X-Ray Images)
 *under construction
 
 # Python Projects
+*under construction
+
+# Kaggle Competitions
 
 | Link | Tools | Description | 
 |---|---|---|
@@ -18,4 +22,8 @@
 | [Digit Recognizer Competition](https://www.kaggle.com/yeehawww/digit-recognizer-using-neural-network) | Python | 96.4% of score was achieved using simple Neural Network algorithm. Currently I am at 1276 out of 1586 participants (Top 81%). |
 | [Titanic Spaceship Data Competition](https://www.kaggle.com/yeehawww/digit-recognizer-using-neural-network) | Python | Again, by using VotingClassifier between CatBoost and GaussianNB, I got 78.2% of score and I am currently in 2503 out of 15892 participants (Top 16%). |
 
-***
+# PowerBI Dashboards
+*under construction
+
+# SQL
+*under construction
