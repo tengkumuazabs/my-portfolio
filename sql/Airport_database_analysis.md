@@ -1,6 +1,6 @@
 # Airport Database Analyis
 
-## ERD Diagram
+## Entity Relationship Diagram
 <img width="577" alt="image" src="https://raw.githubusercontent.com/tengkumuazabs/my-portfolio/main/sql/erd%20diagram/ERD_Airlines.png">
 This database contains 8 tables and the relations are shown above.
 
@@ -17,7 +17,7 @@ where passenger_name='ZULFIYA ZOTOVA';
 |0005434344902|5FC24D  |1382 788097 |ZULFIYA ZOTOVA|{"phone": "+70612043305"}                                           |2017-08-02 00:53:00+07|
 |0005435132853|403D67  |0029 039458 |ZULFIYA ZOTOVA|{"email": "zotova-z.051987@postgrespro.ru", "phone": "+70305717265"}|2017-07-13 00:57:00+07|
 
-She booked it two times at July and August 2017.
+She booked it two times at July 13rd and August 2nd 2017.
 
 ## Q2: How to obtain all aircrafts except SU9, 320, and 773?
 ````sql
@@ -49,7 +49,7 @@ where actual_departure is not null and actual_arrival is not null) - (select cou
 where actual_departure isnull and actual_arrival isnull) as diff;
 ````
 **Answer:**
-|not_departed_arrived|departed_arrived                                                 |diff                            |
+|not_departed_arrived|departed_arrived                                                 |difference                      |
 |--------------------|-----------------------------------------------------------------|--------------------------------|
 |16348               |16715                                                            |367                             |
 
@@ -87,7 +87,7 @@ select model,range,round(range/1.609,2) as miles from aircrafts;
 
 By dividing all original ranges by 1,609. We can get the same range but in miles.
 
-## Q6: How to obtain passengers that ordered ticket at least 500 times
+## Q6: How to obtain passengers that ordered ticket at least 500 times?
 ````sql
 select passenger_name, count(*)
 from tickets
@@ -106,7 +106,7 @@ order by count desc;
 
 Five passengers were ordered ticket at least 500 times. ALEKSANDR IVANOV ordered the most.
 
-## Q7: How many seats of each aircrafts?
+## Q7: How many seats of each aircraft?
 ````sql
 select s.aircraft_code, a.model ->> 'en' as model, count(s.seat_no) as number_of_seats from seats s
 inner join aircrafts a on s.aircraft_code=a.aircraft_code
@@ -127,7 +127,7 @@ group by 1,2 order by number_of_seats;
 
 Cessna 208 Caravan has the least seats and Boeing 777-300 has the maximum seats capacity.
 
-## Q8: How to obtain aircraft models with additional information of their ranges (less than 2000 is short, between 2000 and 5000 is middle, more than 5000 is long)
+## Q8: How to obtain aircraft models with additional information of their ranges? (less than 2000 is short, between 2000 and 5000 is middle, more than 5000 is long)
 ````sql
 select model ->> 'en' model, range,
 case when range < 2000 then 'Short'
@@ -150,4 +150,54 @@ from aircrafts order by model;
 
 Five aircrafts are categorized as long, three aircrafts are categrorized as middle, and only one are categorized as short.
 
+On sixth month, the amount of bookings was 523.346.200
 
+## Q9: Who traveled from SVO to OVB on seat 1A on 27 July 2017, and when he booked it?
+````sql
+select bp.flight_id, f.departure_airport, f.arrival_airport, f.actual_departure, 
+t.passenger_name, bp.seat_no, b.book_date from boarding_passes bp 
+inner join flights f on bp.flight_id=f.flight_id
+inner join tickets t on bp.ticket_no=t.ticket_no
+inner join bookings b on t.book_ref=b.book_ref
+where bp.seat_no='1A' and f.departure_airport='SVO' and f.arrival_airport='OVB' 
+and date(f.actual_departure)='2017-7-27';
+````
+**Answer:**
+|flight_no|departure_airport|arrival_airport|actual_departure      |passenger_name  |seat_no|book_date             |
+|---------|-----------------|---------------|----------------------|----------------|-------|----------------------|
+|PG0277   |SVO              |OVB            |2017-07-27 15:47:00+07|VLADIMIR SMIRNOV|1A     |2017-07-06 17:24:00+07|
+
+VLADIMIR SMIRNOV traveled from SVO to OVB using flight PG0277 and he sat on seat 1A. He booked it on July 6th 2017.
+
+## Q10: How to obtain total flights and total passengers for each hours which happened at August 2nd 2018 and departed from SVO?
+````sql
+select f.hour, total_flights, total_passengers from
+(select date_part('hour', f.actual_departure) as hour, count(f.flight_no) total_flights 
+from flights f 
+where departure_airport='SVO'
+and date(actual_departure)='2017-08-02' group by hour
+order by hour asc) f
+inner join 
+(select date_part('hour', f.actual_departure) as hour, 
+count(bp.seat_no) as total_passengers from flights f 
+inner join boarding_passes bp on f.flight_id=bp.flight_id
+where departure_airport='SVO'
+and date(actual_departure)='2017-08-02' group by hour
+order by hour asc) p
+on f.hour=p.hour;
+````
+|hour|total_flights|total_passengers|
+|----|-------------|----------------|
+|13  |5            |484             |
+|14  |5            |381             |
+|15  |7            |518             |
+|16  |7            |521             |
+|17  |5            |157             |
+|18  |6            |239             |
+|19  |1            |13              |
+|20  |5            |273             |
+|21  |3            |421             |
+|22  |4            |237             |
+|23  |1            |30              |
+
+On August 2nd 2018, flights that departed from SVO happened first at 13rd hour and ended at 23rd hour. Maximum flights happened at 15th and 16th hours (7 flights). Maximum passengers departed happened at 16th hour (521 passengers).
