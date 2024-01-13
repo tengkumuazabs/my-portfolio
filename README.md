@@ -24,7 +24,7 @@ The COVID-19 pandemic has claimed many lives and is predicted to continue. The c
 | [Titanic Spaceship Data Competition](https://www.kaggle.com/yeehawww/digit-recognizer-using-neural-network) | Python | Again, by using VotingClassifier between CatBoost and GaussianNB, I got 78.2% of accuracy. |
 
 # PowerBI Dashboards
-[Campus Dashboard](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/Predict_prices_of_airline_tickets.ipynb)
+[Campus Dashboard]()
 
 # SQL
-- [Airport Database Analysis]
+- [Airport Database Analysis](https://github.com/tengkumuazabs/my-portfolio/blob/main/sql/Airport_database_analysis.md)
