@@ -69,4 +69,43 @@ group by product_name order by 2 desc limit 5;
 
 Staple envelope is the most ordered product with 48 times of sales record.
 
+## Q5: How much sales happened each year?
+````sql
+select date_part('year', order_date) as year, sum(sales) as total_sales
+from sales
+group by year
+order by year;
+````
+**Answer:**
+|year|total_sales                      |
+|----|---------------------------------|
+|2014|484247.4981000009                |
+|2015|470532.50899999985               |
+|2016|609205.5980000008                |
+|2017|733215.2551999999                |
 
+2017 stands as year with most sales summarized which is more than 700000.
+
+## Q6: What was the most sold product each year?
+````sql
+select year, product_name, count from (
+select *, row_number() over (partition by tb1.year 
+order by tb1.count desc) as row_number
+from (
+select date_part('year', s.order_date) as year, p.product_name, count(s.product_id) from sales s
+inner join product p on s.product_id=p.product_id
+group by year, p.product_name
+order by year asc, count desc
+) tb1
+) t 
+where t.row_number = 1
+````
+**Answer:**
+|year|product_name                     |count|
+|----|---------------------------------|-----|
+|2014|Staple envelope                  |15   |
+|2015|Easy-staple paper                |12   |
+|2016|Staple envelope                  |11   |
+|2017|Easy-staple paper                |16   |
+
+Staple envelope were the most sold product at 2014 and 2016 while Easy-staple paper topped at 2015 and 2017.
