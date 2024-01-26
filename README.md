@@ -13,7 +13,9 @@ The COVID-19 pandemic has claimed many lives and is predicted to continue. The c
 # Python Projects
 | Link | Description |
 |---|---|
-| [Predict prices of airline tickets](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/Predict_prices_of_airline_tickets.ipynb) | Doing prediction for airline tickets. | 
+| [Predict prices of airline tickets](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/Predict_prices_of_airline_tickets.ipynb) | Doing a complete data science framework from cleaning the data, engieering the features, to price prediction for airline tickets using Random Forest Regressor and then hypertune the model. | 
+| [Predict status of chronic kidney disease](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/Predict_status_of_chronic_kidney_disease.ipynb) | Address the chronic kindney disease classification problem by applying XGBoost and then Randomized Search which resulted in best parameter for the classifier. | 
+| [Predict the cancellation of hotel bookings](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/Predict_the_cancellation_of_hotel_bookings.ipynb) | Using multiple classification algorithms such as Naive Bayes, KNN, Logistic Regression, Random Forest and Decision Tree to predict the cancellations in binary format. | 
 
 # Kaggle Competitions
 
