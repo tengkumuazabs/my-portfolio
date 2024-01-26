@@ -10,6 +10,8 @@
 # Thesis at Master's Degree (Image Enhancement and Hybrid CNN to Improve COVID-19 Classification Performance on Chest X-Ray Images)
 The COVID-19 pandemic has claimed many lives and is predicted to continue. The classification process using CXR images has been widely carried out and uses various methods, one of which is using a hybrid CNN model. To improve classification performance using a hybrid CNN model, image enhancement techniques can be applied to CXR images. This research proposes the CLAHE image enhancement technique which is applied to CXR images which are then classified using a hybrid CNN model. The experimental results show that there is an increase in classification performance as evidenced by the highest AUC value of 0.821. Testing results also show a significant increase in classification performance between the proposed hybrid CNN model and the existing hybrid CNN models.
 
+[Thesis summary](https://drive.google.com/file/d/1ERZ1nT4senbCwTnfA8rvYDTc6ldcQWUH/view?usp=sharing)
+
 # Python Projects
 | Link | Description |
 |---|---|
