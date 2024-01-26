@@ -25,7 +25,7 @@ The COVID-19 pandemic has claimed many lives and is predicted to continue. The c
 |---|---|---|
 | [Titanic Spaceship Data Competition](https://www.kaggle.com/code/yeehawww/titanic-spaceship-competition/notebook) | Python | This competition gives me 80.0% of accuracy The algorithm VotingClassifier between CatBoost and GaussianNB was used. |
 | [Digit Recognizer Competition](https://www.kaggle.com/yeehawww/digit-recognizer-using-neural-network) | Python | 96.4% of score was achieved using simple Neural Network algorithm. |
-| [Titanic Spaceship Data Competition](https://www.kaggle.com/yeehawww/digit-recognizer-using-neural-network) | Python | Again, by using VotingClassifier between CatBoost and GaussianNB, I got 78.2% of accuracy. |
+| [Titanic Spaceship Data Competition](https://www.kaggle.com/code/yeehawww/titanic-competition/notebook?scriptVersionId=128118357) | Python | Again, by using VotingClassifier between CatBoost and GaussianNB, I got 78.2% of accuracy. |
 
 # PowerBI Dashboards
 ### Campus' Registration Dashboard
