@@ -13,9 +13,8 @@ The COVID-19 pandemic has claimed many lives and is predicted to continue. The c
 [Thesis summary](https://drive.google.com/file/d/1ERZ1nT4senbCwTnfA8rvYDTc6ldcQWUH/view?usp=sharing)
 
 # Python Projects
-| Link | Description |
-|---|---|
-| [Predict prices of airline tickets](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/Predict_prices_of_airline_tickets.ipynb) | I did a data science case by analysing and validating the ticket price of multiple airlines in India. I built a model using Random Forest Regressor to validate the of airline ticket's price. My first step began with loading the data which was in excel format, it has about 10500 rows of records. Then I cleaned the data by deleting the missing values which was happened on one row only. Next step, I started to do a little feature engineering from existing features (ex. extracting time, date, month, year).
+### Predict prices of airline tickets
+I did a data science case by analysing and validating the ticket price of multiple airlines in India. I built a model using Random Forest Regressor to validate the of airline ticket's price. My first step began with loading the data which was in excel format, it has about 10500 rows of records. Then I cleaned the data by deleting the missing values which was happened on one row only. Next step, I started to do a little feature engineering from existing features (ex. extracting time, date, month, year).
 
 Next, I explore the modified data to get some insights. Here, I found that most flights happened at early morning (4 AM to 8 AM) followed by evening (16 PM to 20 PM).
 
@@ -25,9 +24,19 @@ After several feature encoding, the two last thing I did was handling the outlie
 
 Now the final step which was building the model using Random Forest Regressor and applied it to the splitted data (train and validation). By using this model, I got 95.1% of training result and 83.0% of test result.
 
-This data science case is just for experiment only, they are not for business purpose, and yes, there are still a lot of other things that could improve this whole step.. | 
-| [Predict status of chronic kidney disease](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/Predict_status_of_chronic_kidney_disease.ipynb) | Address the chronic kindney disease classification problem by applying XGBoost and then Randomized Search which resulted in best parameter for the classifier. | 
-| [Predict the cancellation of hotel bookings](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/Predict_the_cancellation_of_hotel_bookings.ipynb) | Using multiple classification algorithms such as Naive Bayes, KNN, Logistic Regression, Random Forest and Decision Tree to predict the cancellations in binary format. | 
+This data science case is just for experiment only, they are not for business purpose, and yes, there are still a lot of other things that could improve this whole step.
+
+[Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/Predict_prices_of_airline_tickets.ipynb)
+
+### Predict status of chronic kidney disease
+Address the chronic kindney disease classification problem by applying XGBoost and then Randomized Search which resulted in best parameter for the classifier.
+
+[Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/Predict_status_of_chronic_kidney_disease.ipynb) 
+
+### Predict the cancellation of hotel bookings
+Using multiple classification algorithms such as Naive Bayes, KNN, Logistic Regression, Random Forest and Decision Tree to predict the cancellations in binary format.
+
+[Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/Predict_the_cancellation_of_hotel_bookings.ipynb) 
 
 # Kaggle Competitions
 
