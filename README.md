@@ -8,12 +8,16 @@
 - SQL
 
 # Thesis at Master's Degree (Image Enhancement and Hybrid CNN to Improve COVID-19 Classification Performance on Chest X-Ray Images)
-The COVID-19 pandemic has claimed many lives and is predicted to continue. The classification process using CXR images has been widely carried out and uses various methods, one of which is using a hybrid CNN model. To improve classification performance using a hybrid CNN model, image enhancement techniques can be applied to CXR images. This research proposes the CLAHE image enhancement technique which is applied to CXR images which are then classified using a hybrid CNN model. The experimental results show that there is an increase in classification performance as evidenced by the highest AUC value of 0.821. Testing results also show a significant increase in classification performance between the proposed hybrid CNN model and the existing hybrid CNN models.
 
-[Thesis summary](https://drive.google.com/file/d/1ERZ1nT4senbCwTnfA8rvYDTc6ldcQWUH/view?usp=sharing)
+[Thesis summary (PDF)](https://drive.google.com/file/d/1ERZ1nT4senbCwTnfA8rvYDTc6ldcQWUH/view?usp=sharing)
+
+The COVID-19 pandemic has claimed many lives and is predicted to continue. The classification process using CXR images has been widely carried out and uses various methods, one of which is using a hybrid CNN model. To improve classification performance using a hybrid CNN model, image enhancement techniques can be applied to CXR images. This research proposes the CLAHE image enhancement technique which is applied to CXR images which are then classified using a hybrid CNN model. The experimental results show that there is an increase in classification performance as evidenced by the highest AUC value of 0.821. Testing results also show a significant increase in classification performance between the proposed hybrid CNN model and the existing hybrid CNN models.
 
 # Python Projects
 ### Predict prices of airline tickets
+
+[Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/airlines/Predict_pres_of_airline_tickets.ipynb)
+
 I did a data science case by analysing and validating the ticket price of multiple airlines in India. I built a model using Random Forest Regressor to validate the of airline ticket's price. My first step began with loading the data which was in excel format, it has about 10,500 rows of records. Then, I cleaned the data by deleting the missing values which was happened on one row only. Next step, I started to do a little feature engineering from existing features (ex. extracting time, date, month, year).
 
 Next, I explore the modified data to get some insights. Here, I found that most flights happened at early morning (4 AM to 8 AM) followed by evening (16 PM to 20 PM) (**Figure 1**).
@@ -32,17 +36,22 @@ Now the final step which was building the model using Random Forest Regressor an
 
 This data science project is for experimental and study purpose only. And yes, there are still a lot of other things that could improve this whole step.
 
-[Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/Predict_prices_of_airline_tickets.ipynb)
-
 ### Predict status of chronic kidney disease
+
+[Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/kidney/Predict_status_of_chronic_kidney_disease.ipynb) 
+
 Address the chronic kindney disease classification problem by applying XGBoost and then Randomized Search which resulted in best parameter for the classifier.
 
-[Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/Predict_status_of_chronic_kidney_disease.ipynb) 
-
 ### Predict the cancellation of hotel bookings
+
+[Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/hotel/Predict_the_cancellation_of_hotel_bookings.ipynb) 
+
 Using multiple classification algorithms such as Naive Bayes, KNN, Logistic Regression, Random Forest and Decision Tree to predict the cancellations in binary format.
 
-[Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/Predict_the_cancellation_of_hotel_bookings.ipynb) 
+### Other Python Projects
+| Projects Title | Tools | Description | 
+|---|---|---|
+| [Titanic Spaceship Data Competition](https://www.kaggle.com/code/yeehawww/titanic-spaceship-competition/notebook) | Python | This competition gives me 80.0% of accuracy The algorithm VotingClassifier between CatBoost and GaussianNB was used. |
 
 # Kaggle Competitions
 
