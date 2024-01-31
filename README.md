@@ -53,11 +53,14 @@ Using multiple classification algorithms such as Naive Bayes, KNN, Logistic Regr
 
 # Kaggle Competitions
 
-| Link | Tools | Description | 
-|---|---|---|
-| [Spaceship Titanic](https://www.kaggle.com/code/yeehawww/titanic-spaceship-competition/notebook) | Python | This competition gives me 80.0% of accuracy The algorithm VotingClassifier between CatBoost and GaussianNB was used. |
-| [Digit Recognizer Competition](https://www.kaggle.com/yeehawww/digit-recognizer-using-neural-network) | Python | 96.4% of score was achieved using simple Neural Network algorithm. |
-| [Titanic - Machine Learning from Disaster](https://www.kaggle.com/code/yeehawww/titanic-competition/notebook?scriptVersionId=128118357) | Python | By using VotingClassifier between CatBoost and GaussianNB, I got 78.2% of accuracy. |
+| Link | Description | 
+|---|---|
+| [Spaceship Titanic](https://www.kaggle.com/code/yeehawww/titanic-spaceship-competition/notebook) | This competition gives me 80.0% of accuracy The algorithm VotingClassifier between CatBoost and GaussianNB was used. |
+| [Digit Recognizer](https://www.kaggle.com/yeehawww/digit-recognizer-using-neural-network) | 96.4% of score was achieved using simple Neural Network algorithm. |
+| [Titanic - Machine Learning from Disaster](https://www.kaggle.com/code/yeehawww/titanic-competition/notebook?scriptVersionId=128118357) | By using VotingClassifier between CatBoost and GaussianNB, I got 78.2% of accuracy. |
+| [Binary Prediction of Smoker Status using Bio-Signals](https://www.kaggle.com/code/yeehawww/binary-prediction-of-smoker) | I applied Light Gradient Boosting Machine Classifier on this binary prediction and it gave me 79.0% of AUC score. |
+| [Binary Classification with a Bank Churn Dataset](https://www.kaggle.com/code/yeehawww/binary-classification-with-a-bank-churn-dataset) | A Kaggle competition which I joined to classify bank churn dataset. I used CatBoost classifer and it gave me 88.6% of AUC score. |
+| [House Prices - Advanced Regression Techniques](https://www.kaggle.com/code/yeehawww/house-prices) | Here, I predict the price of houses from its available features. This regression competition I solved using CatBoost Regressor and resulted in 0.172 of Root Mean Squared Error (RMSE) metrics. |
 
 # PowerBI Dashboards
 ### Campus' Registration Dashboard
