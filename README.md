@@ -38,18 +38,28 @@ This data science project is for experimental and study purpose only. And yes, t
 
 [Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/kidney/Predict_status_of_chronic_kidney_disease.ipynb) 
 
-Address the chronic kindney disease classification problem by applying XGBoost and then Randomized Search which resulted in best parameter for the classifier.
+Using only small amount of CSV data (400 rows and 26 columns), I predicted the status of chronic kidney disease (CKD or not CKD) which resulted in 92% of validation accuracy. I did several feature engineering by modifying column names, handling couple of redundat values but have same meaning.
 
-### Predict the cancellation of hotel bookings
+Exploratory data analysis was done by using multiple visualization. Several features such as age, blood glucose, blood urea were skewed (Figure 1). Then, I showed distribution of categorical data whose distributions were not balanced, even the class was not balanced as well (Figure 2). 
 
-[Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/hotel/Predict_the_cancellation_of_hotel_bookings.ipynb) 
+Other insights I discoverd such as when red blood count is 5 or more and packed cell volume is 40 or more, the class more likely to be not CKD rather than CKD (Figure 3). Albumin levels also affect the CKD status (Figure 4). The same thing happed with packed cell volume, it's observed that not CKD status are detected when packed cell volumne is 40 or more (Figure 5).
+The specific gravity is 1.02 or more also affects CKD status (Figure 6).
 
-Using multiple classification algorithms such as Naive Bayes, KNN, Logistic Regression, Random Forest and Decision Tree to predict the cancellations in binary format.
+Figure 1             |  Figure 2
+:-------------------------:|:-------------------------:
+<img width="333" alt="image" src="https://raw.githubusercontent.com/tengkumuazabs/my-portfolio/main/python-projects/airlines/img/most_time.png">  |  <img width="333" alt="image" src="https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/airlines/img/most_destination.png?raw=true">
+Figure 3             |  Figure 4
+<img width="333" alt="image" src="https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/airlines/img/price_duration.png?raw=true"> |  <img width="333" alt="image" src="https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/airlines/img/airlines_price.png?raw=true">
+Figure 5             |  Figure 6
+<img width="333" alt="image" src="https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/airlines/img/price_duration.png?raw=true"> |  <img width="333" alt="image" src="https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/airlines/img/airlines_price.png?raw=true">
+
+Next step is feature encoding and feature selection that 10 most important features were selected for model training using XGBoost Classifier. Finally, RandomizedSearchCV was used to select the best hyperparameter for the trained model.
+
 
 ### Other Python Projects
-| Projects Title | Tools | Description | 
-|---|---|---|
-| [Titanic Spaceship Data Competition](https://www.kaggle.com/code/yeehawww/titanic-spaceship-competition/notebook) | Python | This competition gives me 80.0% of accuracy The algorithm VotingClassifier between CatBoost and GaussianNB was used. |
+| Projects Title | Description | 
+|---|---|
+| [Predict the cancellation of hotel bookings](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/hotel/Predict_the_cancellation_of_hotel_bookings.ipynb) | Using multiple classification algorithms such as Naive Bayes, KNN, Logistic Regression, Random Forest and Decision Tree to predict the cancellations in binary format. |
 
 # Kaggle Competitions
 
