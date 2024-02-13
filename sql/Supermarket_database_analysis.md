@@ -1,4 +1,4 @@
-# Supermart Database Analyis
+# Supermarket Database Analyis
 
 ## Entity Relationship Diagram
 <img width="577" alt="image" src="https://raw.githubusercontent.com/tengkumuazabs/my-portfolio/main/sql/erd%20diagram/ERD_Supermart.png">
