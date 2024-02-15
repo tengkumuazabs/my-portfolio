@@ -73,6 +73,12 @@ Next step is feature encoding and feature selection that 10 most important featu
 | [House Prices - Advanced Regression Techniques](https://www.kaggle.com/code/yeehawww/house-prices) | Here, I predict the price of houses from its available features. This regression competition I solved using CatBoost Regressor and resulted in 0.172 of Root Mean Squared Error (RMSE) metrics. |
 
 # PowerBI Dashboards
+## Experience Recap
+- Developed multiple dashboards such as campus registration reports and major’s acceptance rate year by year.
+- Combined annual data from 2020-2023 which happened to have different data structures.
+- Cleaned redundant data which recorded more than one.
+- Published dashboards to make them accessible.
+  
 ### Campus' Registration Dashboard
 <img width="577" alt="image" src="https://raw.githubusercontent.com/tengkumuazabs/my-portfolio/main/powerbi/Registration%20Dashboard.png">
 This dashboard shows the summary of new students who successfully registered to the campus in 2023. It has multiple visualizations and its has multiple kind of interactions such as direct click to a visual, search bar, and selection.
