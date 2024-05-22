@@ -74,10 +74,9 @@ Next step is feature encoding and feature selection that 10 most important featu
 
 # PowerBI Dashboards
 ## Experience Recap
-- Developed multiple dashboards such as campus registration reports and major’s acceptance rate year by year.
-- Combined annual data from 2020-2023 which happened to have different data structures.
-- Cleaned redundant data which recorded more than one.
-- Published dashboards to make them accessible.
+- Developed 5 dashboards such as new students’ registration report and majors’ yearly acceptance rate using Microsoft Power BI and Python in just 1+ months.
+- Managed raw data with redundant information carefully.
+- Combined data from different sources and different data structures.
   
 ### Campus' Registration Dashboard
 <img width="577" alt="image" src="https://raw.githubusercontent.com/tengkumuazabs/my-portfolio/main/powerbi/Registration%20Dashboard.png">
