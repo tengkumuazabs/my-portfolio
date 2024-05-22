@@ -1,20 +1,21 @@
 # My Portfolios
 
 ## Contents
-1. Thesis at Master's Degree (Image Enhancement and Hybrid CNN to Improve COVID-19 Classification Performance on Chest X-Ray Images)
+1. Thesis at Master's Degree
 2. Python Projects
 3. Kaggle Competitions
 4. PowerBI Dashboards
 5. SQL
 
-# 1. Thesis at Master's Degree (Image Enhancement and Hybrid CNN to Improve COVID-19 Classification Performance on Chest X-Ray Images)
+# 1. Thesis at Master's Degree
+### Image Enhancement and Hybrid CNN to Improve COVID-19 Classification Performance on Chest X-Ray Images
 
 [Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/thesis/Hybrid_CNN_for_COVID_19.ipynb)
 
 The COVID-19 pandemic has claimed many lives and is predicted to continue. The classification process using CXR images has been widely carried out and uses various methods, one of which is using a hybrid CNN model. To improve classification performance using a hybrid CNN model, image enhancement techniques can be applied to CXR images. This research proposes the CLAHE image enhancement technique which is applied to CXR images which are then classified using a hybrid CNN model. The experimental results show that there is an increase in classification performance as evidenced by the highest AUC value of 0.821. Testing results also show a significant increase in classification performance between the proposed hybrid CNN model and the existing hybrid CNN models.
 
 # 2. Python Projects
-### Predict prices of airline tickets
+### • Predict prices of airline tickets
 
 [Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/airlines/Predict_prices_of_airline_tickets.ipynb.ipynb)
 
@@ -36,7 +37,7 @@ Now the final step which was building the model using Random Forest Regressor an
 
 This data science project is for experimental and study purpose only. And yes, there are still a lot of other things that could improve this whole step.
 
-### Predict status of chronic kidney disease
+### • Predict status of chronic kidney disease
 
 [Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/kidney/Predict_status_of_chronic_kidney_disease.ipynb) 
 
@@ -57,13 +58,13 @@ Figure 5             |  Figure 6
 
 Next step is feature encoding and feature selection that 10 most important features were selected for model training using XGBoost Classifier. Finally, RandomizedSearchCV was used to select the best hyperparameter for the trained model.
 
-### Dashboard for Diary Ramadhan app
+### • Dashboard for Diary Ramadhan app
 <img width="577" alt="image" src="https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/streamlit/screencapture-localhost-8501-2024-03-25-17_21_37.png?raw=true">
 
 The dashboard's primary goal is to equip parents with valuable insights to enhance their children's engagement in religious activities during the holy month of Ramadhan. The "Diary Ramadhan" app tracks students' participation in essential practices like prayers, fasting, and Quran recitations. Developed using the Streamlit framework, the dashboard offers a deep dive into two key important areas: First, activity trends, which visualizes overall trends in essential practices like prayer performance, fasting adherence, and Quran recitation and helps to identify areas where students may need some improvements. Second, individual performance, where it tracks the progress of individual students daily. By reporting these data into some meaningful insights, parents can tailor their own strategies to support their kids in enganging their religious activities during Ramadhan based on identifying trends.
 
 
-### Other Python Projects
+### • Other Python Projects
 | Project(s) Title | Description | 
 |---|---|
 | [Predict the cancellation of hotel bookings](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/hotel/Predict_the_cancellation_of_hotel_bookings.ipynb) | Used multiple classification algorithms such as Naive Bayes, KNN, Logistic Regression, Random Forest and Decision Tree to predict the cancellations whether it is yes or no. |
@@ -81,15 +82,15 @@ The dashboard's primary goal is to equip parents with valuable insights to enhan
 
 # 4. PowerBI Dashboards
 ## Experience Recap
-- Developed 5 dashboards such as new students’ registration report and majors’ yearly acceptance rate using Microsoft Power BI and Python in just 1+ months.
-- Managed raw data with redundant information carefully.
-- Combined data from different sources and different data structures.
+1. Developed 5 dashboards such as new students’ registration report and majors’ yearly acceptance rate using Microsoft Power BI and Python in just 1+ months.
+2.  Managed raw data with redundant information carefully.
+3. Combined data from different sources and different data structures.
   
-### Campus' Registration Dashboard
+### • Campus' Registration Dashboard
 <img width="577" alt="image" src="https://raw.githubusercontent.com/tengkumuazabs/my-portfolio/main/powerbi/Registration%20Dashboard.png">
 This dashboard shows the summary of new students who successfully registered to the campus in 2023. It has multiple visualizations and its has multiple kind of interactions such as direct click to a visual, search bar, and selection.
 
-### Campus' Acceptance Rate
+### • Campus' Acceptance Rate
 Bar Chart             |  Line Chart
 :-------------------------:|:-------------------------:
 ![](https://raw.githubusercontent.com/tengkumuazabs/my-portfolio/main/powerbi/Acceptance%20Rate_Page_1.png)  |  ![](https://raw.githubusercontent.com/tengkumuazabs/my-portfolio/main/powerbi/Acceptance%20Rate_Page_2.png)
