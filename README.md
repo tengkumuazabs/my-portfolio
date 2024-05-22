@@ -14,7 +14,7 @@ The COVID-19 pandemic has claimed many lives and is predicted to continue. The c
 # 2. Python Projects
 ### Predict prices of airline tickets
 
-[Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/airlines/Predict_pres_of_airline_tickets.ipynb)
+[Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/airlines/Predict_prices_of_airline_tickets.ipynb.ipynb)
 
 I did a data science case by analysing and validating the ticket price of multiple airlines in India. I built a model using Random Forest Regressor to validate the of airline ticket's price. My first step began with loading the data which was in excel format, it has about 10,500 rows of records. Then, I cleaned the data by deleting the missing values which was happened on one row only. Next step, I started to do a little feature engineering from existing features (ex. extracting time, date, month, year).
 
