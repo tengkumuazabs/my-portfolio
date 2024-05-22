@@ -55,6 +55,11 @@ Figure 5             |  Figure 6
 
 Next step is feature encoding and feature selection that 10 most important features were selected for model training using XGBoost Classifier. Finally, RandomizedSearchCV was used to select the best hyperparameter for the trained model.
 
+### Dashboard for Diary Ramadhan app
+<img width="577" alt="image" src="https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/streamlit/screencapture-localhost-8501-2024-03-25-17_21_37.png?raw=true">
+
+The dashboard's primary goal is to equip parents with valuable insights to enhance their children's engagement in religious activities during the holy month of Ramadhan. The "Diary Ramadhan" app tracks students' participation in essential practices like prayers, fasting, and Quran recitations. Developed using the Streamlit framework, the dashboard offers a deep dive into two key important areas: First, activity trends, which visualizes overall trends in essential practices like prayer performance, fasting adherence, and Quran recitation and helps to identify areas where students may need some improvements. Second, individual performance, where it tracks the progress of individual students daily. By reporting these data into some meaningful insights, parents can tailor their own strategies to support their kids in enganging their religious activities during Ramadhan based on identifying trends.
+
 
 ### Other Python Projects
 | Projects Title | Description | 
