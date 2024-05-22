@@ -1,17 +1,17 @@
 # My Portfolios
 
 ## Contents
-- Thesis at Master's Degree (Image Enhancement and Hybrid CNN to Improve COVID-19 Classification Performance on Chest X-Ray Images)
-- Python Projects
-- Kaggle Competitions
-- PowerBI Dashboards
-- SQL
+1. Thesis at Master's Degree (Image Enhancement and Hybrid CNN to Improve COVID-19 Classification Performance on Chest X-Ray Images)
+2. Python Projects
+3. Kaggle Competitions
+4. PowerBI Dashboards
+5. SQL
 
-# Thesis at Master's Degree (Image Enhancement and Hybrid CNN to Improve COVID-19 Classification Performance on Chest X-Ray Images)
+# 1. Thesis at Master's Degree (Image Enhancement and Hybrid CNN to Improve COVID-19 Classification Performance on Chest X-Ray Images)
 
 The COVID-19 pandemic has claimed many lives and is predicted to continue. The classification process using CXR images has been widely carried out and uses various methods, one of which is using a hybrid CNN model. To improve classification performance using a hybrid CNN model, image enhancement techniques can be applied to CXR images. This research proposes the CLAHE image enhancement technique which is applied to CXR images which are then classified using a hybrid CNN model. The experimental results show that there is an increase in classification performance as evidenced by the highest AUC value of 0.821. Testing results also show a significant increase in classification performance between the proposed hybrid CNN model and the existing hybrid CNN models.
 
-# Python Projects
+# 2. Python Projects
 ### Predict prices of airline tickets
 
 [Python Code](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/airlines/Predict_pres_of_airline_tickets.ipynb)
@@ -66,7 +66,7 @@ The dashboard's primary goal is to equip parents with valuable insights to enhan
 |---|---|
 | [Predict the cancellation of hotel bookings](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/hotel/Predict_the_cancellation_of_hotel_bookings.ipynb) | Used multiple classification algorithms such as Naive Bayes, KNN, Logistic Regression, Random Forest and Decision Tree to predict the cancellations whether it is yes or no. |
 
-# Kaggle Competitions
+# 3. Kaggle Competitions
 
 | Link | Description | 
 |---|---|
@@ -77,7 +77,7 @@ The dashboard's primary goal is to equip parents with valuable insights to enhan
 | [Binary Classification with a Bank Churn Dataset](https://www.kaggle.com/code/yeehawww/binary-classification-with-a-bank-churn-dataset) | A Kaggle competition which I joined to classify bank churn dataset. I used CatBoost classifer and it gave me 88.6% of AUC score. |
 | [House Prices - Advanced Regression Techniques](https://www.kaggle.com/code/yeehawww/house-prices) | Here, I predict the price of houses from its available features. This regression competition I solved using CatBoost Regressor and resulted in 0.172 of Root Mean Squared Error (RMSE) metrics. |
 
-# PowerBI Dashboards
+# 4. PowerBI Dashboards
 ## Experience Recap
 - Developed 5 dashboards such as new students’ registration report and majors’ yearly acceptance rate using Microsoft Power BI and Python in just 1+ months.
 - Managed raw data with redundant information carefully.
@@ -96,7 +96,7 @@ This dashboard shows how each major has different acceptance rate from 2019 to 2
 
 Note: These dashboards above have been modified for privacy reason. They do not represent true data.
 
-# SQL
+# 5. SQL
 | Link | Description |
 |---|---|
 | [Airport Database Analysis](https://github.com/tengkumuazabs/my-portfolio/blob/main/sql/Airport_database_analysis.md) | Applying some SQL queries to answer couple of questions regarding aviation use case. Multiple tables are involved here with their uniqe relation each other. Here, couple entities has been analysed such as airplane info, passengers info, and airport info. |
