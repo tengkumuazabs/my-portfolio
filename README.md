@@ -62,13 +62,13 @@ The dashboard's primary goal is to equip parents with valuable insights to enhan
 
 
 ### Other Python Projects
-| Projects Title | Description | 
+| Project(s) Title | Description | 
 |---|---|
 | [Predict the cancellation of hotel bookings](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/hotel/Predict_the_cancellation_of_hotel_bookings.ipynb) | Used multiple classification algorithms such as Naive Bayes, KNN, Logistic Regression, Random Forest and Decision Tree to predict the cancellations whether it is yes or no. |
 
 # 3. Kaggle Competitions
 
-| Link | Description | 
+| Project(s) Title | Description | 
 |---|---|
 | [Spaceship Titanic](https://www.kaggle.com/code/yeehawww/titanic-spaceship-competition/notebook) | This competition gives me 80.0% of accuracy The algorithm VotingClassifier between CatBoost and GaussianNB was used. |
 | [Digit Recognizer](https://www.kaggle.com/yeehawww/digit-recognizer-using-neural-network) | 96.4% of score was achieved using simple Neural Network algorithm. |
@@ -97,7 +97,7 @@ This dashboard shows how each major has different acceptance rate from 2019 to 2
 Note: These dashboards above have been modified for privacy reason. They do not represent true data.
 
 # 5. SQL
-| Link | Description |
+| Project(s) Title | Description |
 |---|---|
 | [Airport Database Analysis](https://github.com/tengkumuazabs/my-portfolio/blob/main/sql/Airport_database_analysis.md) | Applying some SQL queries to answer couple of questions regarding aviation use case. Multiple tables are involved here with their uniqe relation each other. Here, couple entities has been analysed such as airplane info, passengers info, and airport info. |
 | [Supermart Database Analysis](https://github.com/tengkumuazabs/my-portfolio/blob/main/sql/Supermart_database_analysis.md) | Doing analysis by answering couple of questions in market business like who did the order the most, what is the top 5 most ordered product, who ordered product X, etc. |
