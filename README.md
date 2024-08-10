@@ -68,6 +68,8 @@ The dashboard's primary goal is to equip parents with valuable insights to enhan
 | Project(s) Title | Description | 
 |---|---|
 | [Predict the cancellation of hotel bookings](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/hotel/Predict_the_cancellation_of_hotel_bookings.ipynb) | Used multiple classification algorithms such as Naive Bayes, KNN, Logistic Regression, Random Forest and Decision Tree to predict the cancellations whether it is yes or no. |
+| [Global Warming Analysis](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/global-warming/Global%20Warming%20Analysis.ipynb) | Analysed global warming using temperature record since 18th century. |
+| [Zomato Use Case](https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/zomato/Zomato%20Use%20Case.ipynb) | Analysed dataset from Zomato App. |
 
 # 3. Kaggle Competitions
 
