@@ -27,9 +27,9 @@ The process of feature engineering and finding insights had been done couple tim
 
 Figure 1             |  Figure 2
 :-------------------------:|:-------------------------:
-<img width="333" alt="image" src="https://raw.githubusercontent.com/tengkumuazabs/my-portfolio/main/python-projects/airlines/img/most_time.png">  |  <img width="333" alt="image" src="https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/airlines/img/most_destination.png?raw=true">
+<img width="333" alt="image" src="https://raw.githubusercontent.com/tengkumuazabs/my-portfolio/main/python-projects/airlines/img/most_time.png">  | <img width="333" alt="image" src="https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/airlines/img/price_duration.png?raw=true">  
 Figure 3             |  Figure 4
-<img width="333" alt="image" src="https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/airlines/img/price_duration.png?raw=true"> |  <img width="333" alt="image" src="https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/airlines/img/airlines_price.png?raw=true">
+<img width="333" alt="image" src="https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/airlines/img/most_destination.png?raw=true"> |  <img width="333" alt="image" src="https://github.com/tengkumuazabs/my-portfolio/blob/main/python-projects/airlines/img/airlines_price.png?raw=true">
 
 After several feature encoding, the two last thing I did was handling the outliers of the price and showing the feature importance. 
 
