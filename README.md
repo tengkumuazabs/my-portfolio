@@ -84,10 +84,11 @@ The dashboard's primary goal is to equip parents with valuable insights to enhan
 | [House Prices - Advanced Regression Techniques](https://www.kaggle.com/code/yeehawww/house-prices) | Here, I predict the price of houses from its available features. This regression competition I solved using CatBoost Regressor and resulted in 0.172 of Root Mean Squared Error (RMSE) metrics. |
 
 # 4. PowerBI Dashboards
+
 ## Experience Recap
-1. Developed 5 dashboards such as new students’ registration report and majors’ yearly acceptance rate using Microsoft Power BI and Python in just 1+ months.
-2.  Managed raw data with redundant information carefully.
-3. Combined data from different sources and different data structures.
+1. Recommended a new approach for data visualization that resulted in getting more insights. 
+2. Developed 5 dashboards such as new students’ registration report, majors’ yearly acceptance rate, and social media visuals report.
+3. Managed and cleaned raw data from multiple sources to ensure consistency for data analysis.
   
 ### • Campus' Registration Dashboard
 <img width="577" alt="image" src="https://raw.githubusercontent.com/tengkumuazabs/my-portfolio/main/powerbi/Registration%20Dashboard.png">
@@ -100,7 +101,9 @@ Bar Chart             |  Line Chart
 
 This dashboard shows how each major has different acceptance rate from 2019 to 2022. Bar chart and line chart are used to visualize the rates.
 
-Note: These dashboards above have been modified for privacy reason. They do not represent true data.
+### • Social Media Visuals Dashboard
+<img width="577" alt="image" src="https://github.com/tengkumuazabs/my-portfolio/blob/main/powerbi/Screenshot%202024-08-19%20120510.png">
+This dashboard shows the total visuals each month from multiple platforms and designers.
 
 # 5. SQL
 | Project(s) Title | Description |
