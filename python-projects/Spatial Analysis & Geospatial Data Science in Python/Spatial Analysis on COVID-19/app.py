@@ -54,7 +54,7 @@ country_max['Ratio'] = (country_max['Deaths'] / country_max['Confirmed'] * 100).
 
 # df.to_csv('country_coordinates.csv', index=False)
 
-coordinates = pd.read_csv('country_coordinates.csv')
+coordinates = pd.read_csv('data/country_coordinates.csv')
 country_max['Latitude'], country_max['Longitude'] = coordinates.Latitude, coordinates.Longitude
 
 # st.write(country_max)
