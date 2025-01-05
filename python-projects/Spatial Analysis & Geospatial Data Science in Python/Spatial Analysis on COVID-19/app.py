@@ -27,7 +27,8 @@ if convert_date == False:
 
 # visualization start
 
-st.error('Data valid as **April 2022**')
+st.markdown('Data valid as **April 2022**')
+st.markdown("---")
 
 country_max = df.groupby('Country').max().reset_index().sort_values('Confirmed', ascending=False)
 country_max['Ratio'] = (country_max['Deaths'] / country_max['Confirmed'] * 100).round(2)
@@ -60,10 +61,31 @@ country_max['Latitude'], country_max['Longitude'] = coordinates.Latitude, coordi
 # st.write(country_max)
 
 col1, col2, col3, col4 = st.columns(4, border=False)
-col1.metric("Total Cases", "{:,}".format(df[df.Country == 'Worldwide'].Confirmed.max()))
-col2.metric("Highest Cases in", country_max.iloc[1:2].Country.values[0] + ': ' + "{:,}".format(country_max.iloc[1:2].Confirmed.values[0]))
-col3.metric("Deaths", "{:,}".format(df[df.Country == 'Worldwide'].Deaths.max()))
-col4.metric("Highest Deaths in", country_max.iloc[1:2].Country.values[0] + ': ' + "{:,}".format(country_max.iloc[1:2].Deaths.values[0]))
+# col1.metric("Total Cases", "{:,}".format(df[df.Country == 'Worldwide'].Confirmed.max()))
+# col2.metric("Highest Cases in", country_max.iloc[1:2].Country.values[0] + ': ' + "{:,}".format(country_max.iloc[1:2].Confirmed.values[0]))
+# col3.metric("Deaths", "{:,}".format(df[df.Country == 'Worldwide'].Deaths.max()))
+# col4.metric("Highest Deaths in", country_max.iloc[1:2].Country.values[0] + ': ' + "{:,}".format(country_max.iloc[1:2].Deaths.values[0]))
+
+with col1:
+    st.header("{:,}".format(df[df.Country == 'Worldwide'].Confirmed.max()))
+    st.markdown('Confirmed Cases')
+
+with col2:
+    st.header("{:,}".format(df[df.Country == 'Worldwide'].Deaths.max()))
+    st.markdown('Deaths')
+
+with col3:
+    st.header(country_max.iloc[1:2].Country.values[0])
+    st.markdown('Country with Highest Confirmed Cases')
+    st.markdown(":red[**{:,}".format(country_max.iloc[1:2].Confirmed.values[0]) + '**]')
+
+with col4:
+    st.header(country_max.iloc[1:2].Country.values[0])
+    st.markdown('Country with Highest Deaths')
+    st.markdown(":red[**{:,}".format(country_max.iloc[1:2].Deaths.values[0]) + '**]')
+
+st.markdown('\n')    
+st.markdown('\n')
 
 with st.container(height=400):
     st.markdown('**Deaths Around the World**')
