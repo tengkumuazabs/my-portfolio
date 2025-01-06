@@ -3,6 +3,7 @@ import numpy as np # np mean, np random
 import pandas as pd # read csv, df manipulation
 import plotly.express as px # interactive charts 
 from st_keyup import st_keyup
+import os
 
 st.set_page_config(
     page_title = 'Spatial Analysis on COVID-19',
@@ -11,7 +12,8 @@ st.set_page_config(
 
 st.title('Spatial Analysis on  :red[COVID-19]')
 
-df = pd.read_csv('data/countries-aggregated.csv')
+data_dir = os.path.join(os.path.dirname(__file__), 'data')
+df = pd.read_csv(os.path.join(data_dir, 'countries-aggregated.csv'))
 
 worldwide_grouped = df.groupby('Date').sum()
 worldwide_grouped['Country'] = 'Worldwide'
@@ -55,7 +57,7 @@ country_max['Ratio'] = (country_max['Deaths'] / country_max['Confirmed'] * 100).
 
 # df.to_csv('country_coordinates.csv', index=False)
 
-coordinates = pd.read_csv('data/country_coordinates.csv')
+coordinates = pd.read_csv(os.path.join(data_dir, 'country_coordinates.csv'))
 country_max['Latitude'], country_max['Longitude'] = coordinates.Latitude, coordinates.Longitude
 
 # st.write(country_max)
