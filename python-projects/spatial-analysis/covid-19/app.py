@@ -102,8 +102,8 @@ with col1:
 
 with col2:
 # with st.container(height=400):
-    st.markdown('**Deaths Around the World**')
-    st.map(country_max[country_max.Country != 'Worldwide'], latitude='Latitude', longitude='Longitude', size='Deaths', zoom=1, height=350)
+    st.markdown('**Deaths Around the World** (> 50,000 deaths)')
+    st.map(country_max[(country_max.Country != 'Worldwide') & (country_max.Deaths >= 50000)], latitude='Latitude', longitude='Longitude', size='Deaths', zoom=1, height=350)
 
     # st.write(country_max)
     # m = folium.Map(location=[0,0], zoom_start=2, tiles="CartoDB dark_matter")
