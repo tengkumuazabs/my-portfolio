@@ -3,6 +3,9 @@ import numpy as np # np mean, np random
 import pandas as pd # read csv, df manipulation
 import plotly.express as px # interactive charts 
 from st_keyup import st_keyup
+from streamlit_folium import st_folium
+import folium
+from folium.plugins import HeatMap
 import os
 
 st.set_page_config(
@@ -30,9 +33,12 @@ if convert_date == False:
 # visualization start
 
 st.markdown('Data valid as **April 2022**')
-st.markdown("---")
+st.markdown("\n\n")
+st.markdown("\n\n")
 
-country_max = df.groupby('Country').max().reset_index().sort_values('Confirmed', ascending=False)
+# st.markdown("---")
+
+country_max = df.groupby('Country').max().reset_index().sort_values('Deaths', ascending=False)
 country_max['Ratio'] = (country_max['Deaths'] / country_max['Confirmed'] * 100).round(2)
 # country_max = country_max.sort_values('Country')
 
@@ -62,39 +68,58 @@ country_max['Latitude'], country_max['Longitude'] = coordinates.Latitude, coordi
 
 # st.write(country_max)
 
-col1, col2, col3, col4 = st.columns(4, border=False)
-# col1.metric("Total Cases", "{:,}".format(df[df.Country == 'Worldwide'].Confirmed.max()))
-# col2.metric("Highest Cases in", country_max.iloc[1:2].Country.values[0] + ': ' + "{:,}".format(country_max.iloc[1:2].Confirmed.values[0]))
-# col3.metric("Deaths", "{:,}".format(df[df.Country == 'Worldwide'].Deaths.max()))
-# col4.metric("Highest Deaths in", country_max.iloc[1:2].Country.values[0] + ': ' + "{:,}".format(country_max.iloc[1:2].Deaths.values[0]))
+# with col1:
+#     st.header("{:,}".format(df[df.Country == 'Worldwide'].Confirmed.max()))
+#     st.markdown('Confirmed Cases')
+
+# with col2:
+#     st.header("{:,}".format(df[df.Country == 'Worldwide'].Deaths.max()))
+#     st.markdown('Deaths')
+
+# with col3:
+#     st.header(country_max.iloc[1:2].Country.values[0])
+#     st.markdown('Country with Highest Confirmed Cases')
+#     st.markdown(":red[**{:,}".format(country_max.iloc[1:2].Confirmed.values[0]) + '**]')
+
+# with col4:
+#     st.header(country_max.iloc[1:2].Country.values[0])
+#     st.markdown('Country with Highest Deaths')
+#     st.markdown(":red[**{:,}".format(country_max.iloc[1:2].Deaths.values[0]) + '**]')
+
+# st.markdown('\n')    
+# st.markdown('\n')
+
+col1, col2 = st.columns([1,3], border=True)
 
 with col1:
-    st.header("{:,}".format(df[df.Country == 'Worldwide'].Confirmed.max()))
-    st.markdown('Confirmed Cases')
+    col1.metric("Total Cases", "{:,}".format(df[df.Country == 'Worldwide'].Confirmed.max()))
+    st.markdown("\n\n")
+    col1.metric("\nHighest Cases in", country_max.iloc[1:2].Country.values[0] + ' (' + "{:,}".format(country_max.iloc[1:2].Confirmed.values[0]) + ')')
+    st.markdown("\n\n")
+    col1.metric("Deaths", "{:,}".format(df[df.Country == 'Worldwide'].Deaths.max()))
+    st.markdown("\n\n")
+    col1.metric("Highest Deaths in", country_max.iloc[1:2].Country.values[0] + ' (' + "{:,}".format(country_max.iloc[1:2].Deaths.values[0]) + ')')
 
 with col2:
-    st.header("{:,}".format(df[df.Country == 'Worldwide'].Deaths.max()))
-    st.markdown('Deaths')
-
-with col3:
-    st.header(country_max.iloc[1:2].Country.values[0])
-    st.markdown('Country with Highest Confirmed Cases')
-    st.markdown(":red[**{:,}".format(country_max.iloc[1:2].Confirmed.values[0]) + '**]')
-
-with col4:
-    st.header(country_max.iloc[1:2].Country.values[0])
-    st.markdown('Country with Highest Deaths')
-    st.markdown(":red[**{:,}".format(country_max.iloc[1:2].Deaths.values[0]) + '**]')
-
-st.markdown('\n')    
-st.markdown('\n')
-
-with st.container(height=400):
+# with st.container(height=400):
     st.markdown('**Deaths Around the World**')
-    st.map(country_max[country_max.Country != 'Worldwide'], latitude='Latitude', longitude='Longitude', size='Deaths', zoom=1)
+    st.map(country_max[country_max.Country != 'Worldwide'], latitude='Latitude', longitude='Longitude', size='Deaths', zoom=1, height=350)
+
+    # st.write(country_max)
+    # m = folium.Map(location=[0,0], zoom_start=2, tiles="CartoDB dark_matter")
+    
+    # death_heatmap = country_max[country_max.Country != 'Worldwide'][['Latitude', 'Longitude', 'Confirmed']].values.tolist()
+    # HeatMap(death_heatmap).add_to(m)  
+
+    # st_data = st_folium(m, width=1350, height=370) 
+
+st.markdown("\n\n")
+st.markdown("\n\n")
 
 col1, col2, col3 = st.columns([2,2,2], border=True)
 country_button = ''
+
+# st.write(country_max.isna().sum())
 
 with col1:
     
@@ -110,13 +135,13 @@ with col1:
     with st.container(height=320, border=False):
         col1x1, col1x2 = st.columns([2, 1])
     
-        for country, confirmed in zip(country_max_filtered.Country, country_max_filtered.Confirmed):
+        for country, deaths in zip(country_max_filtered.Country, country_max_filtered.Deaths):
             with col1x1:
                 if st.button(country, use_container_width=True, type="secondary"):
                     country_button = country
     
             with col1x2:
-                st.button('**'+str(f'{confirmed:,}'  )+'**', disabled=True, type="tertiary", use_container_width=True)
+                st.button('**'+str(f'{deaths:,}'  )+'**', key=country, disabled=True, type="tertiary", use_container_width=True)
 
 with col2:
     if country_button == '':
