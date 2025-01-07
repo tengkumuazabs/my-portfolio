@@ -92,18 +92,21 @@ country_max['Latitude'], country_max['Longitude'] = coordinates.Latitude, coordi
 col1, col2 = st.columns([1,3], border=True)
 
 with col1:
-    col1.metric("Total Cases", "{:,}".format(df[df.Country == 'Worldwide'].Confirmed.max()))
+    col1.metric("Total Cases Worldwide", "{:,}".format(df[df.Country == 'Worldwide'].Confirmed.max()))
     st.markdown("\n\n")
-    col1.metric("\nHighest Cases in", country_max.iloc[1:2].Country.values[0] + ' (' + "{:,}".format(country_max.iloc[1:2].Confirmed.values[0]) + ')')
+    col1.metric("\nHighest Cases in", country_max.iloc[1:2].Country.values[0] + ' ➡️ ' + "{:,}".format(country_max.iloc[1:2].Confirmed.values[0]))
+    # st.markdown("\n\n")
+    st.markdown("---")
+    col1.metric("Deaths Worldwide", "{:,}".format(df[df.Country == 'Worldwide'].Deaths.max()))
     st.markdown("\n\n")
-    col1.metric("Deaths", "{:,}".format(df[df.Country == 'Worldwide'].Deaths.max()))
-    st.markdown("\n\n")
-    col1.metric("Highest Deaths in", country_max.iloc[1:2].Country.values[0] + ' (' + "{:,}".format(country_max.iloc[1:2].Deaths.values[0]) + ')')
+    col1.metric("Highest Deaths in", country_max.iloc[1:2].Country.values[0] + ' ➡️ ' + "{:,}".format(country_max.iloc[1:2].Deaths.values[0]))
 
 with col2:
 # with st.container(height=400):
     st.markdown('**Deaths Around the World** (> 50,000 deaths)')
-    st.map(country_max[(country_max.Country != 'Worldwide') & (country_max.Deaths >= 50000)], latitude='Latitude', longitude='Longitude', size='Deaths', zoom=1, height=350)
+    st.map(country_max[(country_max.Country != 'Worldwide') & (country_max.Deaths >= 50000)], 
+           latitude='Latitude', longitude='Longitude', 
+           size='Deaths', zoom=1, height=400)
 
     # st.write(country_max)
     # m = folium.Map(location=[0,0], zoom_start=2, tiles="CartoDB dark_matter")
@@ -113,9 +116,6 @@ with col2:
 
     # st_data = st_folium(m, width=1350, height=370) 
 
-st.markdown("\n\n")
-st.markdown("\n\n")
-
 col1, col2, col3 = st.columns([2,2,2], border=True)
 country_button = ''
 
@@ -124,7 +124,7 @@ country_button = ''
 with col1:
     
     # country_max = df.groupby('Country').max().reset_index().sort_values('Confirmed', ascending=False)
-    value = st_keyup("Country", key="0")
+    value = st_keyup("Country", key="0", placeholder='Enter country name...')
 
     if value:
         country_max_filtered = country_max[country_max.Country.str.lower().str.contains(value.lower())]
@@ -145,7 +145,7 @@ with col1:
 
 with col2:
     if country_button == '':
-        st.error('Please select a country')  
+        st.error('Please select a country', icon='⚠️')  
     
     else:
         df_country = []
@@ -182,7 +182,7 @@ with col2:
 
 with col3:
     if country_button == '':
-        st.error('Please select a country')  
+        st.error('Please select a country', icon='⚠️')  
     
     else:
         # st.write(df_country)
@@ -194,9 +194,9 @@ with col3:
         pie.update_layout(legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=1.02,
-            xanchor="right",
-            x=1
+            y=-5,
+            xanchor="center",
+            x=0.5
         ))
 
         st.plotly_chart(pie, config= dict(
