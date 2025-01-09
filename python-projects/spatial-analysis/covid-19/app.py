@@ -28,6 +28,12 @@ if convert_date == False:
     df = df.set_index('Date')
     convert_date =True
 
+# add_diff = False
+# if add_diff == False:
+    # df['Daily Confirmed'] = df['Confirmed'].diff().fillna(0).astype(int)
+    # df['Daily Recovered'] = df['Recovered'].diff().fillna(0).astype(int)
+    # df['Daily Deaths'] = df['Deaths'].diff().fillna(0).astype(int)
+
 # df['Ratio'] = (df['Deaths'] / df['Confirmed'] * 100).round(2)
 
 # visualization start
@@ -42,6 +48,7 @@ country_max = df.groupby('Country').max().reset_index().sort_values('Deaths', as
 country_max['Ratio'] = (country_max['Deaths'] / country_max['Confirmed'] * 100).round(2)
 # country_max = country_max.sort_values('Country')
 
+# st.write(df)
 
 # import geopy
 # from geopy.geocoders import Nominatim
@@ -94,12 +101,12 @@ col1, col2 = st.columns([1,3], border=True)
 with col1:
     col1.metric("Total Cases Worldwide", "{:,}".format(df[df.Country == 'Worldwide'].Confirmed.max()))
     st.markdown("\n\n")
-    col1.metric("\nHighest Cases in", country_max.iloc[1:2].Country.values[0] + ' ➡️ ' + "{:,}".format(country_max.iloc[1:2].Confirmed.values[0]))
+    col1.metric("\nHighest Cases in", country_max.iloc[1:2].Country.values[0] + ' ◦ ' + "{:,}".format(country_max.iloc[1:2].Confirmed.values[0]))
     # st.markdown("\n\n")
     st.markdown("---")
     col1.metric("Deaths Worldwide", "{:,}".format(df[df.Country == 'Worldwide'].Deaths.max()))
     st.markdown("\n\n")
-    col1.metric("Highest Deaths in", country_max.iloc[1:2].Country.values[0] + ' ➡️ ' + "{:,}".format(country_max.iloc[1:2].Deaths.values[0]))
+    col1.metric("Highest Deaths in", country_max.iloc[1:2].Country.values[0] + ' ◦ ' + "{:,}".format(country_max.iloc[1:2].Deaths.values[0]))
 
 with col2:
 # with st.container(height=400):
@@ -203,3 +210,43 @@ with col3:
             displayModeBar = False)
         )
 
+# col1 = st.columns(1, border=True)
+
+with st.container(border=True):
+    if country_button != '':
+        df = df[df.Country == country_button]
+        df['Daily Confirmed'] = df['Confirmed'].diff().fillna(0).astype(int)
+        df['Daily Recovered'] = df['Recovered'].diff().fillna(0).astype(int)
+        df['Daily Deaths'] = df['Deaths'].diff().fillna(0).astype(int)
+        # st.bar_chart(data=df[df.Country == country_button], y='Daily Confirmed')
+
+        tab1, tab2 = st.tabs(["Confirmed", "Deaths"])
+
+        with tab1:
+            fig = px.bar(df[df.Country == country_button], y='Daily Confirmed', 
+                        color_discrete_sequence=["#262730"], title='Daily Confirmed')
+            
+            fig.update_layout(legend=dict(
+                orientation="h"
+            ), xaxis=dict(showgrid=False), yaxis=dict(showgrid=False), yaxis_title=None, xaxis_title=None, legend_title=None) 
+            fig.update_xaxes(rangeslider_visible=False)
+
+            st.plotly_chart(fig, config= dict(
+                displayModeBar = False)
+            )
+
+        with tab2:
+            fig = px.bar(df[df.Country == country_button], y='Daily Deaths', 
+                        color_discrete_sequence=["red"], title='Daily Deaths')
+            
+            fig.update_layout(legend=dict(
+                orientation="h"
+            ), xaxis=dict(showgrid=False), yaxis=dict(showgrid=False), yaxis_title=None, xaxis_title=None, legend_title=None) 
+            fig.update_xaxes(rangeslider_visible=False)
+
+            st.plotly_chart(fig, config= dict(
+                displayModeBar = False)
+            )
+    
+    else:
+        st.error('Please select a country', icon='⚠️') 
