@@ -1,7 +1,7 @@
 # Airport Database Analyis
 
 ## Entity Relationship Diagram
-<img width="577" alt="image" src="https://raw.githubusercontent.com/tengkumuazabs/my-portfolio/main/sql/erd%20diagram/ERD_Airlines.png">
+<img width="577" alt="image" src="https://github.com/tengkumuazabs/my-portfolio/blob/main/sql/diagram/erd-airlines.png">
 This database contains 8 tables and the relations are shown above.
 
 ## Q1: How to obtain the ticket information that was ordered by ZULFIYA ZOTOVA and when she booked it?

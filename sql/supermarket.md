@@ -1,7 +1,7 @@
 # Supermarket Database Analyis
 
 ## Entity Relationship Diagram
-<img width="577" alt="image" src="https://raw.githubusercontent.com/tengkumuazabs/my-portfolio/main/sql/erd%20diagram/ERD_Supermart.png">
+<img width="577" alt="image" src="https://github.com/tengkumuazabs/my-portfolio/blob/main/sql/diagram/erd-supermarket.png">
 This database contains 3 tables and has no any relations.
 
 ## Q1: How many orders recorded?
