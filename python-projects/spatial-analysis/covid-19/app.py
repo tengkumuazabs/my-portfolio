@@ -139,7 +139,7 @@ with col1:
     else:
         country_max_filtered = country_max
 
-    with st.container(height=320, border=False):
+    with st.container(height=270, border=False):
         col1x1, col1x2 = st.columns([2, 1])
     
         for country, deaths in zip(country_max_filtered.Country, country_max_filtered.Deaths):
@@ -149,6 +149,10 @@ with col1:
     
             with col1x2:
                 st.button('**'+str(f'{deaths:,}'  )+'**', key=country, disabled=True, type="tertiary", use_container_width=True)
+    
+    if country_button != '':
+        st.markdown('\n')  
+        st.error('Selected country: **' + country_button + '**')
 
 with col2:
     if country_button == '':
