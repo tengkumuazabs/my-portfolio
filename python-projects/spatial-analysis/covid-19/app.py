@@ -13,6 +13,10 @@ st.set_page_config(
     layout = 'wide'
 )
 
+options = ["North", "East", "South", "West"]
+selection = st.pills("Directions", options, selection_mode="multi")
+st.markdown(f"Your selected options: {selection}.")
+
 st.title('Spatial Analysis on  :red[COVID-19]')
 
 data_dir = os.path.join(os.path.dirname(__file__), 'data')
@@ -28,27 +32,14 @@ if convert_date == False:
     df = df.set_index('Date')
     convert_date =True
 
-# add_diff = False
-# if add_diff == False:
-    # df['Daily Confirmed'] = df['Confirmed'].diff().fillna(0).astype(int)
-    # df['Daily Recovered'] = df['Recovered'].diff().fillna(0).astype(int)
-    # df['Daily Deaths'] = df['Deaths'].diff().fillna(0).astype(int)
-
-# df['Ratio'] = (df['Deaths'] / df['Confirmed'] * 100).round(2)
-
 # visualization start
 
 st.markdown('Data valid as **April 2022**')
 st.markdown("\n\n")
 st.markdown("\n\n")
 
-# st.markdown("---")
-
 country_max = df.groupby('Country').max().reset_index().sort_values('Deaths', ascending=False)
 country_max['Ratio'] = (country_max['Deaths'] / country_max['Confirmed'] * 100).round(2)
-# country_max = country_max.sort_values('Country')
-
-# st.write(df)
 
 # import geopy
 # from geopy.geocoders import Nominatim
@@ -68,33 +59,8 @@ country_max['Ratio'] = (country_max['Deaths'] / country_max['Confirmed'] * 100).
 #     'Longitude': lon
 # })
 
-# df.to_csv('country_coordinates.csv', index=False)
-
 coordinates = pd.read_csv(os.path.join(data_dir, 'country_coordinates.csv'))
 country_max['Latitude'], country_max['Longitude'] = coordinates.Latitude, coordinates.Longitude
-
-# st.write(country_max)
-
-# with col1:
-#     st.header("{:,}".format(df[df.Country == 'Worldwide'].Confirmed.max()))
-#     st.markdown('Confirmed Cases')
-
-# with col2:
-#     st.header("{:,}".format(df[df.Country == 'Worldwide'].Deaths.max()))
-#     st.markdown('Deaths')
-
-# with col3:
-#     st.header(country_max.iloc[1:2].Country.values[0])
-#     st.markdown('Country with Highest Confirmed Cases')
-#     st.markdown(":red[**{:,}".format(country_max.iloc[1:2].Confirmed.values[0]) + '**]')
-
-# with col4:
-#     st.header(country_max.iloc[1:2].Country.values[0])
-#     st.markdown('Country with Highest Deaths')
-#     st.markdown(":red[**{:,}".format(country_max.iloc[1:2].Deaths.values[0]) + '**]')
-
-# st.markdown('\n')    
-# st.markdown('\n')
 
 col1, col2 = st.columns([1,3], border=True)
 
@@ -102,35 +68,21 @@ with col1:
     col1.metric("Total Cases Worldwide", "{:,}".format(df[df.Country == 'Worldwide'].Confirmed.max()))
     st.markdown("\n\n")
     col1.metric("\nHighest Cases in", country_max.iloc[1:2].Country.values[0] + ' ◦ ' + "{:,}".format(country_max.iloc[1:2].Confirmed.values[0]))
-    # st.markdown("\n\n")
     st.markdown("---")
     col1.metric("Deaths Worldwide", "{:,}".format(df[df.Country == 'Worldwide'].Deaths.max()))
     st.markdown("\n\n")
     col1.metric("Highest Deaths in", country_max.iloc[1:2].Country.values[0] + ' ◦ ' + "{:,}".format(country_max.iloc[1:2].Deaths.values[0]))
 
 with col2:
-# with st.container(height=400):
     st.markdown('**Deaths Around the World** (> 50,000 deaths)')
     st.map(country_max[(country_max.Country != 'Worldwide') & (country_max.Deaths >= 50000)], 
            latitude='Latitude', longitude='Longitude', 
            size='Deaths', zoom=1, height=400)
 
-    # st.write(country_max)
-    # m = folium.Map(location=[0,0], zoom_start=2, tiles="CartoDB dark_matter")
-    
-    # death_heatmap = country_max[country_max.Country != 'Worldwide'][['Latitude', 'Longitude', 'Confirmed']].values.tolist()
-    # HeatMap(death_heatmap).add_to(m)  
-
-    # st_data = st_folium(m, width=1350, height=370) 
-
 col1, col2, col3 = st.columns([2,2,2], border=True)
 country_button = ''
 
-# st.write(country_max.isna().sum())
-
 with col1:
-    
-    # country_max = df.groupby('Country').max().reset_index().sort_values('Confirmed', ascending=False)
     value = st_keyup("Country", key="0", placeholder='Enter country name...')
 
     if value:
@@ -196,7 +148,6 @@ with col3:
         st.error('Please select a country', icon='⚠️')  
     
     else:
-        # st.write(df_country)
         total_confirmed = df_country['Confirmed'].max()
         total_deaths = df_country['Deaths'].max()
 
@@ -214,21 +165,26 @@ with col3:
             displayModeBar = False)
         )
 
-# col1 = st.columns(1, border=True)
-
 with st.container(border=True):
     if country_button != '':
         df = df[df.Country == country_button]
         df['Daily Confirmed'] = df['Confirmed'].diff().fillna(0).astype(int)
         df['Daily Recovered'] = df['Recovered'].diff().fillna(0).astype(int)
         df['Daily Deaths'] = df['Deaths'].diff().fillna(0).astype(int)
-        # st.bar_chart(data=df[df.Country == country_button], y='Daily Confirmed')
+
+        df_confirmed_monthly = df.resample('ME')['Daily Confirmed'].sum()
+        df_deaths_monthly = df.resample('ME')['Daily Deaths'].sum()
 
         tab1, tab2 = st.tabs(["Confirmed", "Deaths"])
 
+        options = ["Daily", "Monthly", "Yearly"]
+
         with tab1:
-            fig = px.bar(df[df.Country == country_button], y='Daily Confirmed', 
-                        color_discrete_sequence=["#262730"], title='Daily Confirmed')
+            selection = st.pills("Time Interval", options, selection_mode="multi")
+            st.markdown(f"Your selected options: {selection}.")
+        
+            fig = px.bar(df_confirmed_monthly, y='Daily Confirmed', 
+                        color_discrete_sequence=["#262730"], title='Monthly Confirmed')
             
             fig.update_layout(legend=dict(
                 orientation="h"
@@ -240,8 +196,8 @@ with st.container(border=True):
             )
 
         with tab2:
-            fig = px.bar(df[df.Country == country_button], y='Daily Deaths', 
-                        color_discrete_sequence=["red"], title='Daily Deaths')
+            fig = px.bar(df_deaths_monthly, y='Daily Deaths', 
+                        color_discrete_sequence=["red"], title='Monthly Deaths')
             
             fig.update_layout(legend=dict(
                 orientation="h"
@@ -254,3 +210,4 @@ with st.container(border=True):
     
     else:
         st.error('Please select a country', icon='⚠️') 
+
