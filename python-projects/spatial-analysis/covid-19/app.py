@@ -13,9 +13,12 @@ st.set_page_config(
     layout = 'wide'
 )
 
-options = ["North", "East", "South", "West"]
-selection = st.pills("Directions", options, selection_mode="multi")
-st.markdown(f"Your selected options: {selection}.")
+# st.session_state.interval
+
+if 'interval_confirmed' not in st.session_state:
+    st.session_state.interval_confirmed = 'Daily'
+    st.session_state.interval_deaths = 'Daily'
+    st.session_state.country = 'Worldwide'
 
 st.title('Spatial Analysis on  :red[COVID-19]')
 
@@ -80,7 +83,7 @@ with col2:
            size='Deaths', zoom=1, height=400)
 
 col1, col2, col3 = st.columns([2,2,2], border=True)
-country_button = ''
+# country_button = ''
 
 with col1:
     value = st_keyup("Country", key="0", placeholder='Enter country name...')
@@ -96,23 +99,23 @@ with col1:
     
         for country, deaths in zip(country_max_filtered.Country, country_max_filtered.Deaths):
             with col1x1:
-                if st.button(country, use_container_width=True, type="secondary"):
-                    country_button = country
+                if st.button(country, use_container_width=True, type="secondary", key=country):
+                    st.session_state.country = country
     
             with col1x2:
-                st.button('**'+str(f'{deaths:,}'  )+'**', key=country, disabled=True, type="tertiary", use_container_width=True)
+                st.button('**'+str(f'{deaths:,}'  )+'**', key=country+'count', disabled=True, type="tertiary", use_container_width=True)
     
-    if country_button != '':
+    if st.session_state.country != '':
         st.markdown('\n')  
-        st.error('Selected country: **' + country_button + '**')
+        st.error('Selected country: **' + st.session_state.country + '**')
 
 with col2:
-    if country_button == '':
+    if st.session_state.country == '':
         st.error('Please select a country', icon='⚠️')  
     
     else:
         df_country = []
-        df_country = df[df.Country == country_button]
+        df_country = df[df.Country == st.session_state.country]
         
         fig = px.line(df_country, y=['Confirmed', 'Deaths'], color_discrete_sequence=["#262730", "red"], title='Confirmed Cases and Deaths Timeline')
         fig.update_layout(legend=dict(
@@ -144,7 +147,7 @@ with col2:
         )
 
 with col3:
-    if country_button == '':
+    if st.session_state.country == '':
         st.error('Please select a country', icon='⚠️')  
     
     else:
@@ -166,25 +169,21 @@ with col3:
         )
 
 with st.container(border=True):
-    if country_button != '':
-        df = df[df.Country == country_button]
+
+    if st.session_state.country != '':
+        df = df[df.Country == st.session_state.country]
         df['Daily Confirmed'] = df['Confirmed'].diff().fillna(0).astype(int)
         df['Daily Recovered'] = df['Recovered'].diff().fillna(0).astype(int)
         df['Daily Deaths'] = df['Deaths'].diff().fillna(0).astype(int)
 
-        df_confirmed_monthly = df.resample('ME')['Daily Confirmed'].sum()
-        df_deaths_monthly = df.resample('ME')['Daily Deaths'].sum()
-
         tab1, tab2 = st.tabs(["Confirmed", "Deaths"])
-
         options = ["Daily", "Monthly", "Yearly"]
 
-        with tab1:
-            selection = st.pills("Time Interval", options, selection_mode="multi")
-            st.markdown(f"Your selected options: {selection}.")
-        
-            fig = px.bar(df_confirmed_monthly, y='Daily Confirmed', 
-                        color_discrete_sequence=["#262730"], title='Monthly Confirmed')
+        def plot_interval(interval, col, title, color):
+            df_resample = df.resample(interval)[col].sum()
+
+            fig = px.bar(df_resample, y=col, 
+                        color_discrete_sequence=color, title=title)
             
             fig.update_layout(legend=dict(
                 orientation="h"
@@ -194,19 +193,44 @@ with st.container(border=True):
             st.plotly_chart(fig, config= dict(
                 displayModeBar = False)
             )
+
+        with tab1:
+            selection = st.pills("Time Interval", options, key='interval_confirmed')
+
+            if selection == 'Daily':
+                plot_interval('D', 'Daily Confirmed', 'Daily Confirmed', ["#262730"])
+
+            elif selection == 'Monthly':
+                plot_interval('ME', 'Daily Confirmed', 'Monthly Confirmed', ["#262730"])
+            
+            elif selection == 'Yearly':
+                plot_interval('YE', 'Daily Confirmed', 'Yearly Confirmed', ["#262730"])
 
         with tab2:
-            fig = px.bar(df_deaths_monthly, y='Daily Deaths', 
-                        color_discrete_sequence=["red"], title='Monthly Deaths')
-            
-            fig.update_layout(legend=dict(
-                orientation="h"
-            ), xaxis=dict(showgrid=False), yaxis=dict(showgrid=False), yaxis_title=None, xaxis_title=None, legend_title=None) 
-            fig.update_xaxes(rangeslider_visible=False)
+            selection = st.pills("Time Interval", options, key='interval_deaths')
 
-            st.plotly_chart(fig, config= dict(
-                displayModeBar = False)
-            )
+            if selection == 'Daily':
+                plot_interval('D', 'Daily Deaths', 'Daily Deaths', ["red"])
+
+            elif selection == 'Monthly':
+                plot_interval('ME', 'Daily Deaths', 'Monthly Deaths', ["red"])
+            
+            elif selection == 'Yearly':
+                plot_interval('YE', 'Daily Deaths', 'Yearly Deaths', ["red"])
+
+            # fig = px.bar(df_deaths_monthly, y='Daily Deaths', 
+            #             color_discrete_sequence=["red"], title='Monthly Deaths')
+            
+            # fig.update_layout(legend=dict(
+            #     orientation="h"
+            # ), xaxis=dict(showgrid=False), yaxis=dict(showgrid=False), yaxis_title=None, xaxis_title=None, legend_title=None) 
+            # fig.update_xaxes(rangeslider_visible=False)
+
+            # st.plotly_chart(fig, config= dict(
+            #     displayModeBar = False)
+            # )
+
+            st.write('f')
     
     else:
         st.error('Please select a country', icon='⚠️') 
