@@ -176,7 +176,6 @@ with col3:
         )
 
 with st.container(border=True):
-
     if st.session_state.country != '':
         df = df[df.Country == st.session_state.country]
         df['Resample Confirmed'] = df['Confirmed'].diff().fillna(0).astype(int)
