@@ -18,7 +18,7 @@ st.set_page_config(
 if 'interval_confirmed' not in st.session_state:
     st.session_state.interval_confirmed = 'Daily'
     st.session_state.interval_deaths = 'Daily'
-    st.session_state.interval_map = '100,000'
+    st.session_state.interval_map = '500,000'
     st.session_state.country = 'Worldwide'
 
 st.title('Spatial Analysis on  :red[COVID-19]')
@@ -78,15 +78,15 @@ with col1:
     col1.metric("Highest Deaths in", country_max.iloc[1:2].Country.values[0] + ' ◦ ' + "{:,}".format(country_max.iloc[1:2].Deaths.values[0]))
 
 with col2:
-    options = ['25,000', '50,000', '100,000']
-    selection = st.pills("Deaths more than...", options, key='interval_map')
+    options = ['25,000', '100,000', '500,000']
+    selection = st.pills("Deaths Around the World More Than...", options, key='interval_map')
 
     selection = int(selection.replace(',', ''))
 
     def plot_map(interval):
-        st.markdown('**Deaths Around the World** (> ' + str("{:,}".format(interval)) + ' deaths)')
+        # st.markdown('**Deaths Around the World** (> ' + str("{:,}".format(interval)) + ' deaths)')
         st.map(country_max[(country_max.Country != 'Worldwide') & (country_max.Deaths >= interval)], 
-            latitude='Latitude', longitude='Longitude', size='Deaths', zoom=1, height=400)
+            latitude='Latitude', longitude='Longitude', size='Deaths', zoom=1, height=350)
     
     plot_map(selection)
 
@@ -185,11 +185,11 @@ with st.container(border=True):
 
         tab1, tab2 = st.tabs(["Confirmed", "Deaths"])
 
-        def plot_interval(interval, col, title, color):
+        def plot_interval(interval, col, color):
             df_resample = df.resample(interval)[col].sum()
 
             fig = px.bar(df_resample, y=col, 
-                        color_discrete_sequence=color, title=title)
+                        color_discrete_sequence=color)
             
             fig.update_layout(legend=dict(
                 orientation="h"
@@ -205,25 +205,25 @@ with st.container(border=True):
             selection = st.pills("Time Interval", options, key='interval_confirmed')
 
             if selection == 'Daily':
-                plot_interval('D', 'Resample Confirmed', 'Daily Confirmed', ["#262730"])
+                plot_interval('D', 'Resample Confirmed', ["#262730"])
 
             elif selection == 'Monthly':
-                plot_interval('ME', 'Resample Confirmed', 'Monthly Confirmed', ["#262730"])
+                plot_interval('ME', 'Resample Confirmed', ["#262730"])
             
             elif selection == 'Yearly':
-                plot_interval('YE', 'Resample Confirmed', 'Yearly Confirmed', ["#262730"])
+                plot_interval('YE', 'Resample Confirmed', ["#262730"])
 
         with tab2:
             selection = st.pills("Time Interval", options, key='interval_deaths')
 
             if selection == 'Daily':
-                plot_interval('D', 'Resample Deaths', 'Daily Deaths', ["red"])
+                plot_interval('D', 'Resample Deaths', ["red"])
 
             elif selection == 'Monthly':
-                plot_interval('ME', 'Resample Deaths', 'Monthly Deaths', ["red"])
+                plot_interval('ME', 'Resample Deaths', ["red"])
             
             elif selection == 'Yearly':
-                plot_interval('YE', 'Resample Deaths', 'Yearly Deaths', ["red"])
+                plot_interval('YE', 'Resample Deaths', ["red"])
     
     else:
         st.error('Please select a country', icon='⚠️') 
