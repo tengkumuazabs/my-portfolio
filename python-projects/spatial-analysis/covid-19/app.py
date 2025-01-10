@@ -217,20 +217,6 @@ with st.container(border=True):
             
             elif selection == 'Yearly':
                 plot_interval('YE', 'Daily Deaths', 'Yearly Deaths', ["red"])
-
-            # fig = px.bar(df_deaths_monthly, y='Daily Deaths', 
-            #             color_discrete_sequence=["red"], title='Monthly Deaths')
-            
-            # fig.update_layout(legend=dict(
-            #     orientation="h"
-            # ), xaxis=dict(showgrid=False), yaxis=dict(showgrid=False), yaxis_title=None, xaxis_title=None, legend_title=None) 
-            # fig.update_xaxes(rangeslider_visible=False)
-
-            # st.plotly_chart(fig, config= dict(
-            #     displayModeBar = False)
-            # )
-
-            st.write('f')
     
     else:
         st.error('Please select a country', icon='⚠️') 
