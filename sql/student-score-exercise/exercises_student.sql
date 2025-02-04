@@ -27,7 +27,7 @@
 
 select * from students;
 
--- 1)Calculate the average math_score for each career_aspiration. 
+-- 1. Calculate the average math_score for each career_aspiration. 
 -- Order the results by the average score in descending order.
 
 select career_aspiration, round(avg(math_score), 2) as avg_math 
@@ -35,7 +35,7 @@ from students group by career_aspiration order by avg_math desc;
 
 
 
--- 2)Find the career_aspirations that have an average english_score greater than 75. 
+-- 2. Find the career_aspirations that have an average english_score greater than 75. 
 -- Display the career aspiration and the average score.
 
 select * from (
@@ -45,7 +45,7 @@ where avg_english > 75 order by avg_english desc;
 
 
 
--- 3)Identify students who have a math_score higher than the school's average math score. 
+-- 3. Identify students who have a math_score higher than the school's average math score. 
 -- List their first_name, last_name, and math_score.
 
 select first_name, last_name, math_score from students 
@@ -53,7 +53,7 @@ where math_score > (select avg(math_score) from students);
 
 
 
--- 4)Rank students within each career_aspiration category by their physics_score in descending order. 
+-- 4. Rank students within each career_aspiration category by their physics_score in descending order. 
 -- Display the first_name, last_name, career_aspiration, physics_score, and the rank.
 
 select first_name, last_name, career_aspiration, physics_score,
@@ -62,7 +62,7 @@ from students;
 
 
 
--- 5) For each student, create a new column full_name by concatenating first_name and last_name 
+-- 5. For each student, create a new column full_name by concatenating first_name and last_name 
 -- with a space in between. Show the full_name and email columns where the email contains 
 -- the string "academy".
 
@@ -71,7 +71,7 @@ where email like '%academy%';
 
 
 
--- 6)Calculate the lowest (FLOOR), highest (CEIL), and average (ROUND to two decimal places) 
+-- 6. Calculate the lowest (FLOOR), highest (CEIL), and average (ROUND to two decimal places) 
 -- chemistry_score for each career aspirant. Display the career aspirants, lowest score, 
 -- highest score, and average score.
 
@@ -81,7 +81,7 @@ group by career_aspiration;
 
 
 
--- 7)Find career aspirations where the average history_score is above 85 and at least 5 students 
+-- 7. Find career aspirations where the average history_score is above 85 and at least 5 students 
 -- aspire to that career. List the career_aspiration and the average score.
 
 select career_aspiration, round(avg(history_score)) as avg, count(career_aspiration) from students
@@ -90,7 +90,7 @@ having round(avg(history_score)) > 85;
 
 
 
--- 8)Identify students who score above average in both biology and chemistry, 
+-- 8. Identify students who score above average in both biology and chemistry, 
 -- compared to the school's average for those subjects. Display their id, first_name, last_name, 
 -- biology_score, and chemistry_score.
 
@@ -100,7 +100,7 @@ and chemistry_score > (select avg(chemistry_score) from students);
 
 
 
--- 9)Calculate the percentage of absence days for each student relative to the total absence 
+-- 9. Calculate the percentage of absence days for each student relative to the total absence 
 -- days recorded for all students. Display the id, first_name, last_name, and the calculated 
 -- percentage, rounded to two decimal places. Order the results by the percentage in descending order
 
@@ -111,7 +111,7 @@ order by 4 desc;
 
 
 
--- 10)Identify students who have scores above 80 in at least three out of the six subjects: 
+-- 10. Identify students who have scores above 80 in at least three out of the six subjects: 
 -- math, history, physics, chemistry, biology, and English. Display their id, first_name, last_name, 
 -- and the count of subjects where they scored above 80.
 
