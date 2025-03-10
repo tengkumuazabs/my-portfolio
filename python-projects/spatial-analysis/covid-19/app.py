@@ -1,7 +1,6 @@
-import streamlit as st # web development
-import numpy as np # np mean, np random 
-import pandas as pd # read csv, df manipulation
-import plotly.express as px # interactive charts 
+import streamlit as st 
+import pandas as pd
+import plotly.express as px 
 from st_keyup import st_keyup
 from streamlit_folium import st_folium
 import folium
