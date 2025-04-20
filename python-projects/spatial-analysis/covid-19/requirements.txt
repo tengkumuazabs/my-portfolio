@@ -1,6 +1,6 @@
 streamlit
 pandas
 plotly
-st-keyup
+streamlit-keyup
 streamlit-folium
 folium
